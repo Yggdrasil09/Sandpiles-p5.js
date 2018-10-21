@@ -19,7 +19,7 @@ function setup()
             piles[i][j]=0;
         }
     }
-    piles[300][300]=10000;
+    piles[300][300]=1000000;
     //pixelDensity(1);
 }
 
@@ -62,7 +62,7 @@ function colorr()
             {
                 pixels[(i+j*width)*4+0]=255;
                 pixels[(i+j*width)*4+1]=0;
-                pixels[(i+j*width)*4+2]=0;
+                pixels[(i+j*width)*4+2]=255;
             }
             else if(piles[i][j]==1)
             {
@@ -80,7 +80,7 @@ function colorr()
             {
                 pixels[(i+j*width)*4+0]=255;
                 pixels[(i+j*width)*4+1]=0;
-                pixels[(i+j*width)*4+2]=255;
+                pixels[(i+j*width)*4+2]=0;
             }
             else if(piles[i][j]>=4)
             {
