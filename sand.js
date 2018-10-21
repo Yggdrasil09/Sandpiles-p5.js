@@ -1,30 +1,45 @@
-var piles=new Array(600);
+var piles;
+
+var i,j;
 
 function setup()
 {
     var canvas=createCanvas(600,600);
     background(0, 0, 0);
     canvas.position((windowWidth - width) / 2,(windowHeight - height) / 2);
-    for(var i=0;i<600;i++)
+    piles=new Array(600);
+    for(i=0;i<600;i++)
     {
         piles[i]=new Array(600);
     }
-    piles[300][300]=600;
+    for(i=0;i<600;i++)
+    {
+        for(j=0;j<600;j++)
+        {
+            piles[i][j]=0;
+        }
+    }
+    piles[300][300]=10000;
+    //pixelDensity(1);
 }
 
 function draw()
 {  
-    topple();
-    colorcheck();
+    loadPixels();
+    for(i=0;i<20;i++)
+    {
+        topple();
+        colorr();
+    }
+    updatePixels();
 }
 
 function topple()
 {
-    for(var i=0;i<600;i++)
+    for(var i=1;i<600;i++)
     {
-        for(var j=0;j<600;j++)
+        for(var j=1;j<600;j++)
         {
-            console.log(i ,j ,piles[i][j]);
             if(piles[i][j]>3)
             {
                 piles[i][j]=piles[i][j]-4;
@@ -37,36 +52,41 @@ function topple()
     }
 }
 
-function colorcheck()
+function colorr()
 {
-    fill(255);
-    for(var i=0;i<600;i++)
+    for(i=0;i<600;i++)
     {
-        for(var j=0;j<600;j++)
+        for(j=0;j<600;j++)
         {
             if(piles[i][j]==0)
             {
-                fill(255,0,0);
-                rect(i,j,5,5);
+                pixels[(i+j*width)*4+0]=255;
+                pixels[(i+j*width)*4+1]=0;
+                pixels[(i+j*width)*4+2]=0;
             }
             else if(piles[i][j]==1)
             {
-                fill(0,255,0);
-                rect(i,j,5,5);
+                pixels[(i+j*width)*4+0]=0;
+                pixels[(i+j*width)*4+1]=255;
+                pixels[(i+j*width)*4+2]=0;
             }
             else if(piles[i][j]==2)
             {
-                fill(0,0,255);
-                rect(i,j,5,5);
+                pixels[(i+j*width)*4+0]=0;
+                pixels[(i+j*width)*4+1]=0;
+                pixels[(i+j*width)*4+2]=255;
             }
             else if(piles[i][j]==3)
             {
-                fill((255,0,255));
-                rect(i,j,5,5);
+                pixels[(i+j*width)*4+0]=255;
+                pixels[(i+j*width)*4+1]=0;
+                pixels[(i+j*width)*4+2]=255;
             }
             else if(piles[i][j]>=4)
             {
-                rect(i,j,5,5);
+                pixels[(i+j*width)*4+0]=255;
+                pixels[(i+j*width)*4+1]=255;
+                pixels[(i+j*width)*4+2]=255;
             }
         }
     }
