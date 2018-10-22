@@ -19,18 +19,17 @@ function setup()
             piles[i][j]=0;
         }
     }
-    piles[300][300]=1000000;
-    //pixelDensity(1);
+    piles[300][300]=sand;
 }
 
 function draw()
 {  
     loadPixels();
-    for(i=0;i<20;i++)
+    for(i=0;i<200;i++)
     {
         topple();
-        colorr();
     }
+    colorr();
     updatePixels();
 }
 
