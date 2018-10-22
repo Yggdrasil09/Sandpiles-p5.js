@@ -7,22 +7,50 @@
     <script src="http://cdnjs.cloudflare.com/ajax/libs/p5.js/0.5.6/p5.js"></script>
     <script src="http://cdnjs.cloudflare.com/ajax/libs/p5.js/0.5.6/addons/p5.dom.js"></script>
     <title>Sandpiles</title>
+    <style>
+        table, th, td {
+            border: 1px solid black;
+        }
+        th, td {
+            padding: 5px;
+        }
+    </style>
 </head>
 <body style="background-color:rgb(130, 236, 236)">
     <div id="main">
         <h1 style="font-family:courier;font-size:60px;padding-left:50px;">
             <span>Sandpiles</span>
-            <span style="text-align:right;padding-left:570px;">Simulation</span>
+            <span style="text-align:right;padding-left:563px;">Simulation</span>
         </h1>
     </div>
     <div id="content">
         <h3 style="padding-left:20px">You can find the resource to sandpiles <a href="https://en.wikipedia.org/wiki/Abelian_sandpile_model " target="_blank">here</a></h3>
     </div>
-    <div style=" padding-right:50px">
-        <h2>Enter the number of sands <br>&nbsp&nbsp&nbspto be droped:<input type="text" id="sands"></h2>
+
+    <div style=" padding-right:50px;padding-top:130px">
+        <h2 style="padding-left:30px">Enter the number of sands <br>&nbsp&nbspto be droped:<input type="text" id="sands"></h2>
         <input style="position:absolute;margin-left:250px;" type="submit" onclick="num_sand();" />
     </div>
-    
+    <div style="padding-left:1200px">
+        <table>
+            <tr>
+                <th>0</th>
+                <th>PINK</th>
+            </tr>
+            <tr>
+                <th>1</th>
+                <th>GREEN</th>
+            </tr>
+            <tr>
+                <th>2</th>
+                <th>BLUE</th>
+            </tr>
+            <tr>
+                <th>3</th>
+                <th>RED</th>
+            </tr>
+        </table>
+    </div>
     <script>
         var sand=0;
         function num_sand()
